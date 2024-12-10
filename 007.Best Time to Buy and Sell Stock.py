@@ -1,6 +1,5 @@
 prices = [7,6,4,3,1]
 #prices = [7,6,4,3,1] return 0
-best_day = 0
 def compute(prices):
     min_price = float('inf')  
     max_profit = 0  
