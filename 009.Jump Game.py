@@ -1,23 +1,14 @@
-nums = [2,3,1,1,4]
-# nums = [2,0]
+nums = [2,1,5,0]
 
-def jump(nums):
+def canJump(nums):
     n = len(nums)
-    location = 0
-    if len(nums) == 1:
-        return True
-    
-    elif n >= 2:
-        while True:
-            try:
-                if location == n - 1:
-                    return True
-                if nums[location] == 0 and location != n - 1:
-                    return False
-                
-                location += nums[location]
-            except:
-                return False
-            
+    max_reach = 0
+    for i in range(n):
+        if i > max_reach:
+            return False
+        max_reach = max(max_reach, i + nums[i])
+        if max_reach >= n - 1:
+            return True
+    return max_reach >= n - 1
 
-print(jump(nums))
+print(canJump(nums))
